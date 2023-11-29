@@ -9,11 +9,13 @@ import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 
 import { useUser } from '@contexts/userContext';
+import { useNavigation } from '@react-navigation/native';
 
 export function Login() {
   const [email, setEmail] = useState('joao@exemplo.com');
   const [password, setPassword] = useState('123456');
   const { setSigned, setUserId, userId, signed } = useUser();
+  const navigation = useNavigation();
 
   async function handleLogIn() {
     try {
@@ -23,6 +25,7 @@ export function Login() {
       setSigned?.(true);
       setUserId?.(data.user.id);
 
+      navigation.navigate('news');
     } catch (_error) {
       Alert.alert('Erro ⚠', 'Usuário ou senha inválidos.');
     }
