@@ -13,16 +13,15 @@ import { useUser } from '@contexts/userContext';
 export function Login() {
   const [email, setEmail] = useState('joao@exemplo.com');
   const [password, setPassword] = useState('123456');
-  const { setSigned, setUserId } = useUser();
+  const { setSigned, setUserId, userId, signed } = useUser();
 
   async function handleLogIn() {
     try {
+
       const { data } = await login(email, password);
 
       setSigned?.(true);
       setUserId?.(data.user.id);
-
-      console.log(data)
 
     } catch (_error) {
       Alert.alert('Erro ⚠', 'Usuário ou senha inválidos.');
