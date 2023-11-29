@@ -8,6 +8,7 @@ import { Container, Content, Icon } from './styles';
 import { Button } from '@components/Button';
 import { Input } from '@components/Input';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from '@components/Header';
 
 export function SignUp() {
   const [email, setEmail] = useState('joao@exemplo.com');
@@ -44,6 +45,8 @@ export function SignUp() {
 
   return (
     <Container>
+      <Header showBackButton showLogo={false} />
+
       <Content>
         <Icon size={128} />
 

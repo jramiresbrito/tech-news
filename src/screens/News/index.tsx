@@ -8,6 +8,7 @@ import { Loading } from '@components/Loading';
 import { Highlight } from '@components/Highlight';
 import { ListEmpty } from '@components/ListEmpty';
 import { NewsCard } from '@components/NewsCard';
+import { Header } from '@components/Header';
 
 import { Container } from './styles';
 
@@ -54,6 +55,7 @@ export function News() {
         backgroundColor="transparent"
         translucent
       />
+      <Header showSignOutButton />
 
       <Highlight
         title="Últimas Notícias"
