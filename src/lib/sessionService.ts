@@ -1,13 +1,14 @@
-import http from './httpService';
+import http from '@lib/httpService';
 
 const loginEndpoint = '/users/sign_in';
 
 export function login(email: string, password: string) {
-  return http.post(loginEndpoint, { email, password })
-    .then(response => {
+  return http
+    .post(loginEndpoint, { user: { email, password } })
+    .then((response) => {
       return response;
     })
-    .catch(error => {
+    .catch((error) => {
       return Promise.reject(error);
     });
 }
@@ -15,12 +16,12 @@ export function login(email: string, password: string) {
 const logoutEndpoint = '/users/sign_out';
 
 export function logout() {
-  return http.delete(logoutEndpoint)
-    .then(response => {
+  return http
+    .delete(logoutEndpoint)
+    .then((response) => {
       return response;
     })
-    .catch(error => {
+    .catch((error) => {
       return Promise.reject(error);
     });
 }
-
