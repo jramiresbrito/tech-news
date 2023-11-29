@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { FlatList, StatusBar, Alert } from 'react-native';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
 import { listNews } from '@lib/newsService';
 
@@ -11,6 +11,7 @@ import { NewsCard } from '@components/NewsCard';
 import { Header } from '@components/Header';
 
 import { Container } from './styles';
+import { Button } from '@components/Button';
 
 type User = {
   id: Number;
@@ -29,6 +30,12 @@ type New = {
 export function News() {
   const [news, setNews] = useState<New[]>();
   const [isLoading, setIsLoading] = useState(true);
+
+  const navigation = useNavigation();
+
+  function handleAddNew() {
+    navigation.navigate('addNew');
+  }
 
   const fetchNews = useCallback(async () => {
     try {
@@ -84,6 +91,7 @@ export function News() {
         />
       )}
 
+      <Button title="Criar nova notícia" onPress={handleAddNew} />
     </Container>
   );
 }
