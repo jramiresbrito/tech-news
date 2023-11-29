@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 export function Login() {
   const [email, setEmail] = useState('joao@exemplo.com');
   const [password, setPassword] = useState('123456');
-  const { setSigned, setUserId, userId, signed } = useUser();
+  const { setSigned, setUserId } = useUser();
   const navigation = useNavigation();
 
   async function handleLogIn() {
@@ -32,8 +32,7 @@ export function Login() {
   }
 
   function handleSignUp() {
-    // todo
-    return
+    navigation.navigate('signUp');
   }
 
   return (

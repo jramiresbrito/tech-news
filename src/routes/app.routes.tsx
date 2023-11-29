@@ -3,6 +3,7 @@ import { Login } from '@screens/Login';
 import { News } from '@screens/News';
 
 import { useUser } from '../contexts/userContext';
+import { SignUp } from '@screens/SignUp';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export function AppRoutes() {
       ) : (
         <>
           <Screen name="login" component={Login} />
+          <Screen name="signUp" component={SignUp} />
         </>
       )}
     </Navigator>
