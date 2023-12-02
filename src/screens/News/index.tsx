@@ -80,6 +80,16 @@ export function News() {
               title={item.title}
               link={item.link}
               author={item.user.email}
+              onEditPress={() =>
+                navigation.navigate('addNew', {
+                  isEditing: true,
+                  existingNews: {
+                    id: item.id,
+                    title: item.title,
+                    link: item.link,
+                  },
+                })
+              }
             />
           )}
           contentContainerStyle={

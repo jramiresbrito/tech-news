@@ -1,7 +1,7 @@
 import { TouchableOpacity } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
-export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY' | 'DELETE';
+export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 
 type ButtonProps = {
   type: ButtonTypeStyleProps;
@@ -14,18 +14,8 @@ export const Container = styled(TouchableOpacity)<ButtonProps>`
   min-height: 56px;
   max-height: 56px;
 
-  background-color: ${({ theme, type }) => {
-    switch (type) {
-      case 'PRIMARY':
-        return theme.COLORS.GREEN_700;
-      case 'SECONDARY':
-        return theme.COLORS.GRAY_300;
-      case 'DELETE':
-        return theme.COLORS.RED_DARK;
-      default:
-        return theme.COLORS.GREEN_700;
-    }
-  }};
+  background-color: ${({ theme, type }) =>
+    type === 'PRIMARY' ? theme.COLORS.GREEN_700 : theme.COLORS.GRAY_300};
 
   border-radius: 6px;
 

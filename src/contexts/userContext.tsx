@@ -15,22 +15,28 @@ interface UserContextType {
   setSigned?: Dispatch<React.SetStateAction<boolean>>;
   userId: number;
   setUserId?: Dispatch<React.SetStateAction<number>>;
+  userEmail: string;
+  setUserEmail?: Dispatch<React.SetStateAction<string>>;
 }
 
 export const UserContext = createContext<UserContextType>({
   signed: false,
   userId: 0,
+  userEmail: '',
 });
 
 export default function UserProvider({ children }: UserProviderProps) {
   const [signed, setSigned] = useState(false);
   const [userId, setUserId] = useState(0);
+  const [userEmail, setUserEmail] = useState('');
 
   const value: UserContextType = {
     signed,
     setSigned,
     userId,
     setUserId,
+    userEmail,
+    setUserEmail
   };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
@@ -39,7 +45,7 @@ export default function UserProvider({ children }: UserProviderProps) {
 export function useUser() {
   const context = useContext(UserContext);
 
-  const { signed, setSigned, userId, setUserId } = context;
+  const { signed, setSigned, userId, setUserId, userEmail, setUserEmail } = context;
 
-  return { signed, setSigned, userId, setUserId };
+  return { signed, setSigned, userId, setUserId, userEmail, setUserEmail };
 }

@@ -26,13 +26,14 @@ export function Header({
 }: HeaderProps) {
   const navigation = useNavigation();
   const route = useRoute();
-  const { setSigned, setUserId } = useUser();
+  const { setSigned, setUserId, setUserEmail } = useUser();
 
   async function handleLogOut() {
     await logout();
 
     setSigned?.(false);
     setUserId?.(0);
+    setUserEmail?.('');
   }
 
   function handleGoBack() {

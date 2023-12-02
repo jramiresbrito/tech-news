@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
-import { CodeSimple } from 'phosphor-react-native';
+import { CodeSimple, PencilSimple } from 'phosphor-react-native';
 
 export const Container = styled(TouchableOpacity)`
   width: 100%;
@@ -20,8 +20,9 @@ export const Container = styled(TouchableOpacity)`
 export const InnerContainer = styled.View`
   flex: 1;
   flex-direction: column;
+  align-items: stretch;
 
-  align-items: flex-end;
+  gap: 8px;
 `;
 
 export const Title = styled.Text`
@@ -30,6 +31,23 @@ export const Title = styled.Text`
     color: ${theme.COLORS.GRAY_200};
     font-family: ${theme.FONT_FAMILY.BOLD};
   `};
+`;
+
+export const Icon = styled(CodeSimple).attrs(({ theme }) => ({
+  size: 32,
+  color: theme.COLORS.ORANGE_500,
+}))`
+  margin-right: 20px;
+`;
+
+// export const EditButton = styled(PencilSimple).attrs(({ theme }) => ({
+//   size: 32,
+//   color: theme.COLORS.GREEN_700,
+// }))``;
+
+export const Placeholder = styled.View`
+  width: 32px;
+  height: 32px;
 `;
 
 export const Author = styled.Text`
@@ -41,9 +59,8 @@ export const Author = styled.Text`
   `};
 `;
 
-export const Icon = styled(CodeSimple).attrs(({ theme }) => ({
-  size: 32,
-  color: theme.COLORS.ORANGE_500,
-}))`
-  margin-right: 20px;
+export const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;

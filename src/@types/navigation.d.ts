@@ -4,7 +4,15 @@ export declare global {
       login: undefined;
       signUp: undefined;
       news: undefined;
-      addNew: undefined;
+      addNew: {
+        isEditing: boolean;
+        existingNews: {
+          id: Number;
+          title: string;
+          link: string;
+        };
+      };
+      myNews: undefined;
     }
   }
 }

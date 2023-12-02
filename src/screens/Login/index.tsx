@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 export function Login() {
   const [email, setEmail] = useState('joao@exemplo.com');
   const [password, setPassword] = useState('123456');
-  const { setSigned, setUserId } = useUser();
+  const { setSigned, setUserId, setUserEmail } = useUser();
   const navigation = useNavigation();
 
   async function handleLogIn() {
@@ -24,6 +24,7 @@ export function Login() {
 
       setSigned?.(true);
       setUserId?.(data.user.id);
+      setUserEmail?.(data.user.email);
 
       navigation.navigate('news');
     } catch (_error) {
